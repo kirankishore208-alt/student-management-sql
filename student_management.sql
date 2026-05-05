@@ -1,0 +1,14 @@
+create database students_management;
+use students_management;
+create table student(id int,PRIMARY KEY(id),NAME varchar(10));
+insert into student values(1,'RICHARD'),(2,'SUNDHAR'),(3,'SHANKAR');
+create table marks(id int,SUBJECT varchar(10),mark int,FOREIGN KEY (id) REFERENCES student(id));
+insert into marks values(1,'TAMIL',98),(2,'ENGLISH',87),(3,'MAJOR',77);
+create table attendance(id int,PERCENTAGE int,FOREIGN KEY (id) REFERENCES student(id));
+insert into attendance values(1,79),(2,69),(3,88);
+select student.NAME ,marks.SUBJECT ,marks.mark from student join marks on student.id=marks.id;
+select student.NAME ,marks.SUBJECT ,marks.mark from student left join marks on student.id=marks.id;
+select student.NAME ,attendance.PERCENTAGE from student join attendance on student.id=attendance.id;
+select avg(mark) as average_mark from marks;
+select * from marks where mark>80;
+select * from marks order by mark desc;
