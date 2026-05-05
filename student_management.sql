@@ -1,8 +1,6 @@
 drop database if exists students_management;
 create database students_management;
 use students_management;
-create database students_management;
-use students_management;
 create table student(id int,PRIMARY KEY(id),NAME varchar(10));
 insert into student values(1,'RICHARD'),(2,'SUNDHAR'),(3,'SHANKAR');
 create table marks(id int,SUBJECT varchar(10),mark int,FOREIGN KEY (id) REFERENCES student(id));
@@ -18,4 +16,4 @@ select * from marks order by mark desc;
 select student.name, avg(marks.mark) as avg_mark
 from student
 join marks on student.id = marks.id
-group by student.name;
+group by student.id ,student.name;
