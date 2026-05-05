@@ -1,3 +1,6 @@
+drop database if exists students_management;
+create database students_management;
+use students_management;
 create database students_management;
 use students_management;
 create table student(id int,PRIMARY KEY(id),NAME varchar(10));
@@ -12,3 +15,7 @@ select student.NAME ,attendance.PERCENTAGE from student join attendance on stude
 select avg(mark) as average_mark from marks;
 select * from marks where mark>80;
 select * from marks order by mark desc;
+select student.name, avg(marks.mark) as avg_mark
+from student
+join marks on student.id = marks.id
+group by student.name;
