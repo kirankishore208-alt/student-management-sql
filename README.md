@@ -12,4 +12,4 @@ This project demonstrates basic database operations using MySQL.
 - MySQL Workbench
 
 ## Author
-Kiran
+Kiran Kishore
